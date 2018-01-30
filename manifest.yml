@@ -1,0 +1,35 @@
+---
+memory: 1G
+instances: 1
+services:
+- movie-fun-sso
+applications:
+- name: album-service-harpal
+  path: applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
+  services:
+  - album-database
+  env:
+      GRANT_TYPE: client_credentials
+      S3_ENDPOINTURL: http://s3.amazonaws.com
+      S3_ACCESSKEY: AKIAJLSXVAMOIAJNBZ6A
+      S3_SECRETKEY: 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
+      S3_BUCKETNAME: cf-4f3b490a-52e3-49f8-8c5b-cd5f89514814
+- name: movie-service-harpal
+  path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
+  services:
+  - movie-database
+  env:
+      GRANT_TYPE: client_credentials
+      S3_ENDPOINTURL: http://s3.amazonaws.com
+      S3_ACCESSKEY: AKIAJLSXVAMOIAJNBZ6A
+      S3_SECRETKEY: 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
+      S3_BUCKETNAME: cf-4f3b490a-52e3-49f8-8c5b-cd5f89514814
+- name: movie-fun-app-harpal
+  path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
+  env:
+    ALBUMS_URL: https://album-service-harpal.apps.cumuluslabs.io/albums
+    MOVIES_URL: https://movie-service-harpal.apps.cumuluslabs.io/movies
+    S3_ENDPOINTURL: http://s3.amazonaws.com
+    S3_ACCESSKEY: AKIAJLSXVAMOIAJNBZ6A
+    S3_SECRETKEY: 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
+    S3_BUCKETNAME: cf-4f3b490a-52e3-49f8-8c5b-cd5f89514814
