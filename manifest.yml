@@ -33,6 +33,8 @@ applications:
   routes:
   - route: movie-fun-app-harpal.apps.cumuluslabs.io
   path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
+  services:
+    - movie-fun-config
   env:
     S3_ENDPOINTURL: http://s3.amazonaws.com
     S3_ACCESSKEY: AKIAJLSXVAMOIAJNBZ6A
