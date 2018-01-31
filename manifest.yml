@@ -14,9 +14,10 @@ applications:
   env:
       GRANT_TYPE: client_credentials
       S3_ENDPOINTURL: http://s3.amazonaws.com
-      S3_ACCESSKEY: AKIAJLSXVAMOIAJNBZ6A
-      S3_SECRETKEY: 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
-      S3_BUCKETNAME: cf-4f3b490a-52e3-49f8-8c5b-cd5f89514814
+      S3_ACCESSKEY: AKIAJ77BHAZTNP2UKF6A
+      S3_SECRETKEY: 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
+      S3_BUCKETNAME: cf-852c1b4a-99c9-4bda-ac9c-5e47fad88686
+      S3_REGIONNAME: ap-southeast-1
 - name: movie-service-harpal
   routes:
   - route: movie-service-harpal.apps.cumuluslabs.io
@@ -26,17 +27,20 @@ applications:
   env:
       GRANT_TYPE: client_credentials
       S3_ENDPOINTURL: http://s3.amazonaws.com
-      S3_ACCESSKEY: AKIAJLSXVAMOIAJNBZ6A
-      S3_SECRETKEY: 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
-      S3_BUCKETNAME: cf-4f3b490a-52e3-49f8-8c5b-cd5f89514814
+      S3_ACCESSKEY: AKIAJ77BHAZTNP2UKF6A
+      S3_SECRETKEY: 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
+      S3_BUCKETNAME: cf-852c1b4a-99c9-4bda-ac9c-5e47fad88686
+      S3_REGIONNAME: ap-southeast-1
 - name: movie-fun-app-harpal
   routes:
   - route: movie-fun-app-harpal.apps.cumuluslabs.io
   path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
   services:
     - movie-fun-config
+    - movie-fun-circuit-breaker
   env:
     S3_ENDPOINTURL: http://s3.amazonaws.com
-    S3_ACCESSKEY: AKIAJLSXVAMOIAJNBZ6A
-    S3_SECRETKEY: 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
-    S3_BUCKETNAME: cf-4f3b490a-52e3-49f8-8c5b-cd5f89514814
+    S3_ACCESSKEY: AKIAJ77BHAZTNP2UKF6A
+    S3_SECRETKEY: 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
+    S3_BUCKETNAME: cf-852c1b4a-99c9-4bda-ac9c-5e47fad88686
+    S3_REGIONNAME: ap-southeast-1
